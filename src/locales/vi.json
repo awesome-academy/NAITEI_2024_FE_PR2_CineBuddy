@@ -3,5 +3,29 @@
     "language": {
     "english": "Tiếng Anh",
     "vietnamese": "Tiếng Việt"
+    },
+    "footer": {
+        "cgv_vietnam": "CGV Việt Nam",
+        "intro": "Giới Thiệu",
+        "online_services": "Tiện Ích Online",
+        "gift_card": "Thẻ Quà Tặng",
+        "recruitment": "Tuyển Dụng",
+        "ad_contact": "Liên Hệ Quảng Cáo CGV",
+        "partner": "Dành Cho Đối Tác",
+        "terms_of_use": "Điều khoản sử dụng",
+        "general_terms": "Điều Khoản Chung",
+        "transaction_terms": "Điều Khoản Giao Dịch",
+        "payment_policy": "Chính Sách Thanh Toán",
+        "privacy_policy": "Chính Sách Bảo Mật",
+        "faq": "Câu Hỏi Thường Gặp",
+        "connect_with_us": "Kết nối với chúng tôi",
+        "customer_service": "Chăm sóc khách hàng",
+        "hotline": "Hotline: 1900 6017",
+        "working_hours": "Giờ làm việc: 8:00 - 22:00 (Tất cả các ngày bao gồm cả lễ tết)",
+        "support_email": "Email hỗ trợ: hoidap@cgv.vn",
+        "cgv_company_name": "CÔNG TY TNHH CJ CGV VIỆT NAM",
+        "business_registration": "Giấy Chứng nhận đăng ký doanh nghiệp: 0303675393 đăng ký lần đầu ngày 31/7/2008, được cấp bởi Sở Kế hoạch và Đầu tư Thành phố Hồ Chí Minh",
+        "address": "Địa chỉ: Lầu 2, số 7/28, Đường Thành Thái, Phường 14, Quận 10, Thành phố Hồ Chí Minh, Việt Nam",
+        "copyright": "COPYRIGHT 2017 CJ CGV VIETNAM CO., LTD. ALL RIGHTS RESERVED"
     }
 }
