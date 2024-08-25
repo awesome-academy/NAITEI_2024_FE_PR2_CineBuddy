@@ -1,5 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Footer } from './components/Footer.tsx';
+import './index.css';
 
 const App: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -13,6 +15,8 @@ const App: React.FC = () => {
       <h1>{t('welcome')}</h1>
       <button onClick={() => changeLanguage('en')}>{t('language.english')}</button>
       <button onClick={() => changeLanguage('vi')}>{t('language.vietnamese')}</button>
+      {/* main */}
+      <Footer />
     </div>
   );
 };
