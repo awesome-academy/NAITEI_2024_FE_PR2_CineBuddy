@@ -9,9 +9,12 @@ module.exports = {
       colors: {
         'custom-gray': '#636363', 
         'custom-border': '#e1e1e1', 
+        'swiper-bullet': 'lightgray', 
+        'swiper-bullet-active': '#E71A0F',
       },
       backgroundImage: {
-        'brand-footer': "url('/public/images/brand-footer.png')", 
+        'brand-footer': "url('/public/images/brand-footer.png')",
+        'home-menu': "url('/public/images/bg-header-home.png')", 
       },
       backgroundPosition: {
         'brand-1': '-391px 5px', 
@@ -26,6 +29,17 @@ module.exports = {
         'brand-10': '-675px 3px',
         'brand-11': '-785px 3px',
         'brand-12': '-891px 2px',
+        'menu-1': '10px 0', 
+        'menu-2': '-140px 0',
+        'menu-3': '-280px 0',
+        'menu-4': '-420px 0',
+        'menu-5': '-560px 0',
+        'menu-6': '-700px 0',
+        'menu-7': '-830px 0',
+      },
+      spacing: {
+        'swiper-button-offset': '160px',
+        'bullet-size': '15px',
       },
     },
   },
