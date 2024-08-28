@@ -186,5 +186,9 @@
     "new_promotion": "New & Promotions",
     "event_or_voucher_alt": "{{title}}",
     "service_image_alt": "Service Image {{title}}"
+  },
+  "button": {
+    "like": "Like",
+    "unlike": "Unlike"
   }
 }

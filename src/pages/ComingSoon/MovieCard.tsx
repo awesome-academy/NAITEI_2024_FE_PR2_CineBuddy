@@ -1,11 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
-import TicketButton from '../../components/TicketButton.tsx'; 
+import TicketButton from '../../components/TicketButton.tsx';
 import { Movie } from '../../utils/api.ts'; 
 
 interface MovieCardProps {
-  movie: Movie; 
+  movie: Movie;
   hasLiked: boolean;
   likes: number;
   onLike: (id: number) => void;
@@ -20,7 +19,6 @@ const MovieCard: React.FC<MovieCardProps> = ({
   setModal,
 }) => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
   const movieKey = movie.title.split('.')[1];
 
@@ -35,21 +33,10 @@ const MovieCard: React.FC<MovieCardProps> = ({
       </div>
 
       <div className="text-left text-black mb-4 flex-grow h-[120px]">
-        <h2
-          className="font-bold text-xl mb-2 cursor-pointer"
-          onClick={() => navigate(`/movie-detail/${movie.id}`)}
-        >
-          {t(`movies.${movieKey}.title`)}
-        </h2>
-        <p>
-          <strong>{t('genre')}:</strong> {t(`movies.${movieKey}.genre`)}
-        </p>
-        <p>
-          <strong>{t('duration')}:</strong> {t(`movies.${movieKey}.duration`)}
-        </p>
-        <p>
-          <strong>{t('release_date')}:</strong> {movie.release_date}
-        </p>
+        <h2 className="font-bold text-xl mb-2">{t(`movies.${movieKey}.title`)}</h2>
+        <p><strong>{t('genre')}:</strong> {t(`movies.${movieKey}.genre`)}</p>
+        <p><strong>{t('duration')}:</strong> {t(`movies.${movieKey}.duration`)}</p>
+        <p><strong>{t('release_date')}:</strong> {movie.release_date}</p>
       </div>
 
       <div className="flex justify-between items-center w-full">
@@ -59,11 +46,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
           } hover:bg-[#145dbf]`}
           onClick={() => onLike(movie.id)}
         >
-          <img
-            src="/images/like_icon.png"
-            alt="Like"
-            className="mr-1"
-          />
+          <img src="/images/like_icon.png" alt="Like" className="mr-1" />
           {hasLiked ? t('button.unlike') : t('button.like')} {likes}
         </button>
         <TicketButton maPhim={movie.id} setModal={setModal} />

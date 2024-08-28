@@ -186,5 +186,9 @@
     "new_promotion": "Tin Mới & Ưu Đãi",
     "event_or_voucher_alt": "{{title}}",
     "service_image_alt": "Hình ảnh dịch vụ {{title}}"
+  },
+  "button": {
+    "like": "Thích",
+    "unlike": "Bỏ Thích"
   }
 }
