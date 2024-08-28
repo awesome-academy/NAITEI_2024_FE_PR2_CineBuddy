@@ -5,14 +5,13 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Pagination, Navigation } from "swiper/modules";
 import { Event, Voucher } from "../../types/types.ts";
-import { TFunction } from "i18next";
+import { useTranslation } from "react-i18next"; 
 
 interface EventSectionProps {
   eventList: Event[];
   voucherList: Voucher[];
   activeTab: "cgv" | "promotion";
   setActiveTab: (tab: "cgv" | "promotion") => void;
-  t: TFunction;
 }
 
 const EventSection: React.FC<EventSectionProps> = ({
@@ -20,8 +19,9 @@ const EventSection: React.FC<EventSectionProps> = ({
   voucherList,
   activeTab,
   setActiveTab,
-  t,
 }) => {
+  const { t } = useTranslation();
+
   const eventTabs = [
     {
       text: t("home.cgv_members"),

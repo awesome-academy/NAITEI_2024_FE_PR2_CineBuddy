@@ -18,7 +18,7 @@ import SmallBanners from "./SmallBanners.tsx";
 import HomeMenu from "./HomeMenu.tsx";
 import BigBanner from "./BigBanner.tsx";
 import MoviesSection from "./MoviesSection.tsx";
-import EventSection from "./EventSection.tsx";
+import EventSection from "./EventSection.tsx"; 
 import ServiceSection from "./ServiceSection.tsx";
 import ShowtimeModal from "../../components/ShowtimeModal.tsx";
 import "../../index.css";
@@ -99,9 +99,9 @@ const Home: React.FC = () => {
         { className: "bg-menu-7" },
       ]} />
       <BigBanner bannerList={bannerList} />
-      <MoviesSection movieList={movieList} navigate={navigate} t={t} setModal={setModal} />
-      <EventSection eventList={eventList} voucherList={voucherList} activeTab={activeTab} setActiveTab={setActiveTab} t={t} />
-      <ServiceSection serviceList={serviceList} t={t} />
+      <MoviesSection movieList={movieList} navigate={navigate} setModal={setModal} />
+      <EventSection eventList={eventList} voucherList={voucherList} activeTab={activeTab} setActiveTab={setActiveTab} />
+      <ServiceSection serviceList={serviceList} />
       {modal && (
         <ShowtimeModal
           maPhim={0}

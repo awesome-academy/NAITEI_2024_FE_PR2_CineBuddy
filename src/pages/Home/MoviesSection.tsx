@@ -7,21 +7,21 @@ import { Pagination, Navigation } from "swiper/modules";
 import { Movie } from "../../types/types.ts";
 import TicketButton from "../../components/TicketButton.tsx"; 
 import { NavigateFunction } from "react-router-dom";
-import { TFunction } from "i18next";
+import { useTranslation } from "react-i18next"; 
 
 interface MoviesSectionProps {
   movieList: Movie[];
   navigate: NavigateFunction;
-  t: TFunction;
   setModal: React.Dispatch<React.SetStateAction<boolean | null>>; 
 }
 
 const MoviesSection: React.FC<MoviesSectionProps> = ({
   movieList,
   navigate,
-  t,
   setModal, 
 }) => {
+  const { t } = useTranslation(); 
+
   const nowShowingList = movieList.filter((movie) => movie.dangChieu);
 
   return (
