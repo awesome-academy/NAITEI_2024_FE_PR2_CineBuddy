@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import BreadcrumbSection from './BreadcrumbSection.tsx';
-import MovieCard from './MovieCard.tsx';
+import MovieSlider from '../../components/MovieSlider.tsx';
 import ShowtimeModal from '../../components/ShowtimeModal.tsx';
 import { fetchMovies, toggleLike, initializeLikes, Movie } from '../../utils/api.ts';
 import { useTranslation } from 'react-i18next';
@@ -46,24 +46,20 @@ const ComingSoon: React.FC = () => {
           </Link>
         </div>
 
-        {/* Movies Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-8">
-          {movies.filter(movie => movie.sapChieu).map(movie => (
-            <MovieCard
-              key={movie.id}
-              movie={movie}
-              hasLiked={hasLiked[movie.id]}
-              likes={likes[movie.id]}
-              onLike={handleLike}
-              setModal={setModal}
-            />
-          ))}
-        </div>
+        {/* Movie Slider */}
+        <MovieSlider
+          movies={movies}
+          filterCondition={(movie) => movie.sapChieu}
+          hasLiked={hasLiked}
+          likes={likes}
+          onLike={handleLike}
+          setModal={setModal}
+        />
       </div>
 
       {modal && (
         <ShowtimeModal
-          maPhim={0} 
+          movieId={0} 
           modal={modal}
           setModal={setModal}
         />
