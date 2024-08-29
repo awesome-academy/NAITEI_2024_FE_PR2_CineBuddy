@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import TicketButton from '../../components/TicketButton.tsx'; 
-import { Movie } from '../../utils/api.ts'; 
+import { Movie } from '../utils/api.ts'; 
 
 interface MovieCardProps {
   movie: Movie; 
