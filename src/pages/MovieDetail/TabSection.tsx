@@ -1,6 +1,7 @@
 import React from 'react';
 import { Movie } from '../../utils/api.ts';
 import { useTranslation } from 'react-i18next';
+import Trailer from '../../components/Trailer.tsx'; 
 
 interface TabSectionProps {
   movie: Movie;
@@ -52,16 +53,11 @@ const TabSection: React.FC<TabSectionProps> = ({ movie, content, setContent }) =
         <p>{t(`${movieKey}.description`)}</p>
       ) : (
         <div className="flex justify-center">
-          <iframe
+          <Trailer
+            src={`https://www.youtube.com/embed/${movie.trailer}`}
             width="560"
             height="315"
-            src={`https://www.youtube.com/embed/${movie.trailer}`}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
+          />
         </div>
       )}
     </div>

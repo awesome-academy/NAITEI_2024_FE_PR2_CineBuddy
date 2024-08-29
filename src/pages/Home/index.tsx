@@ -104,7 +104,7 @@ const Home: React.FC = () => {
       <ServiceSection serviceList={serviceList} />
       {modal && (
         <ShowtimeModal
-          maPhim={0}
+          movieId={0}
           modal={modal}
           setModal={setModal}
         />
