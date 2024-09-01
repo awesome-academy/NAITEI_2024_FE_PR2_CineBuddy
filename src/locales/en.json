@@ -30,7 +30,7 @@
     "coming_soon": "Coming Soon",
     "new_and_promotion": "New & Promotions",
     "my_tickets": "My Tickets",
-    "login_register": "Login / Register",
+    "login_register": "LOGIN / REGISTER",
     "hello": "Hello",
     "logout": "Logout",
     "film": "Movies",
@@ -190,5 +190,46 @@
   "button": {
     "like": "Like",
     "unlike": "Unlike"
+  },
+  "userform": {
+    "login": "LOGIN",
+    "register": "REGISTER"
+  },
+  "login": {
+    "emailOrPhone": "Email or phone number",
+    "password": "Password",
+    "remember_me": "Remember Me",
+    "submit_button": "Log In",
+    "login_success": "Login successful!",
+    "login_failure": "Login failed. Please check your credentials and try again.",
+    "errors": {
+      "emailOrPhone_required": "Email or phone number is required.",
+      "password_required": "Password is required.",
+      "password_uppercase": "Password must contain at least one uppercase letter.",
+      "password_lowercase": "Password must contain at least one lowercase letter.",
+      "password_number": "Password must contain at least one number.",
+      "password_special": "Password must contain at least one special character."
+    }
+  },
+  "register": {
+    "name": "Name",
+    "phone": "Phone number",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "register_success": "Registration successful",
+    "register_failure": "An error occurred during registration",
+    "submit_button": "Register",
+    "user_exists": "User already exists",
+    "errors": {
+      "name_required": "Name is required",
+      "phone_required": "Phone number is required",
+      "email_required": "Email is required",
+      "email_invalid": "Please enter a valid email address",
+      "password_required": "Password is required",
+      "password_strength": "Password must be at least 8 characters long, include an uppercase letter, a number, and a special character",
+      "confirm_password_required": "Confirm password is required",
+      "passwords_mismatch": "Passwords do not match"
+    }
   }
 }
