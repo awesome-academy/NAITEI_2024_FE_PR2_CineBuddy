@@ -76,7 +76,7 @@ const MoviesSection: React.FC<MoviesSectionProps> = ({
                     >
                       {t("home.view_details")}
                     </button>
-                    <TicketButton maPhim={movie.id} setModal={setModal} />
+                    <TicketButton movieId={movie.id} setModal={setModal} />
                   </div>
                 </div>
               </div>

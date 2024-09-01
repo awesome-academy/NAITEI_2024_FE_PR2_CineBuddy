@@ -59,7 +59,7 @@ const MovieInfo: React.FC<MovieInfoProps> = ({
             }`}
             onClick={handleLike}
           >
-            <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/FEppCFCt76d.png" alt="Like" className="mr-1" />
+            <img src="/images/like_icon.png" alt="Like" className="mr-1" />
             {hasLiked[movie.id] ? t('button.unlike') : t('button.like')} {likes[movie.id]}
           </button>
           <TicketButton movieId={movie.id} setModal={setModal} />
