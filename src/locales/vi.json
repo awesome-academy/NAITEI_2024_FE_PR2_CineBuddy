@@ -198,12 +198,17 @@
   "login": {
     "emailOrPhone": "Email hoặc số điện thoại",
     "password": "Mật khẩu",
-    "login_success": "Đăng nhập thành công",
-    "login_failure": "Tài khoản hoặc mật khẩu không đúng",
-    "submit_button": "Đăng Nhập",
+    "remember_me": "Ghi nhớ tài khoản",
+    "submit_button": "Đăng nhập",
+    "login_success": "Đăng nhập thành công!",
+    "login_failure": "Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin và thử lại.",
     "errors": {
-      "emailOrPhone_required": "Vui lòng nhập email hoặc số điện thoại",
-      "password_required": "Vui lòng nhập mật khẩu"
+      "emailOrPhone_required": "Email hoặc số điện thoại là bắt buộc.",
+      "password_required": "Mật khẩu là bắt buộc.",
+      "password_uppercase": "Mật khẩu phải chứa ít nhất một chữ cái viết hoa.",
+      "password_lowercase": "Mật khẩu phải chứa ít nhất một chữ cái viết thường.",
+      "password_number": "Mật khẩu phải chứa ít nhất một chữ số.",
+      "password_special": "Mật khẩu phải chứa ít nhất một ký tự đặc biệt."
     }
   },
   "register": {
