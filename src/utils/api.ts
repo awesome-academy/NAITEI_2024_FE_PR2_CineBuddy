@@ -27,6 +27,11 @@ export interface Showtime {
   timeshowing: { id: number; time: string }[];
 }
 
+export interface SeatData {
+  seatStatus: { [key: string]: string };
+  seatCondition: { [key: string]: string };
+}
+
 const MOVIE_LIKES_KEY = 'movieLikes';
 const LIKED_MOVIES_KEY = 'likedMovies';
 
@@ -76,6 +81,40 @@ export const fetchMovieShowtimes = async (
   } catch (error) {
     console.error('Error fetching movie showtimes:', error);
     return [];
+  }
+};
+
+// Lay seat data cho showtime do
+export const fetchSeatData = async (showtimeId: number): Promise<SeatData | undefined> => {
+  const response = await fetch(`${process.env.REACT_APP_API_HOST}/showtimes/${showtimeId}`);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch seat data for showtime ID: ${showtimeId}`);
+  }
+  const data = await response.json();
+  return { seatStatus: data.seatStatus, seatCondition: data.seatCondition };
+};
+
+// Update seat status khi book
+export const updateSeatStatus = async (showtimeId: number, selectedSeats: string[]): Promise<void> => {
+  try {
+    const response = await fetch(`${process.env.REACT_APP_API_HOST}/showtimes/${showtimeId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        seatStatus: selectedSeats.reduce((acc, seat) => {
+          acc[seat] = 'occupied';
+          return acc;
+        }, {} as { [key: string]: string })
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to update seat status');
+    }
+  } catch (error) {
+    console.error('Error updating seat status:', error);
   }
 };
 
