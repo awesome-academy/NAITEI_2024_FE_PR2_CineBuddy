@@ -9,6 +9,19 @@ interface User {
   passWord: string; 
 }
 
+export interface Ticket {
+  id: number;
+  userEmail: string;
+  movieTitle: string;
+  cinema: string;
+  showtime: string;
+  date: string; 
+  seats: string[];
+  price: number;
+  barcode: string;
+  image: string;
+}
+
 const USERS_KEY = 'users';
 const LOGGED_IN_USER_KEY = 'loggedInUser';
 const REMEMBER_ME_USER_KEY = 'rememberMeUser';
@@ -89,4 +102,10 @@ export const getLoggedInUserFromCookies = (): User | null => {
   }
 
   return null;
+};
+
+// User ticket
+export const fetchUserTickets = async (user: User): Promise<Ticket[]> => {
+  const tickets = JSON.parse(localStorage.getItem('tickets') || '[]');
+  return tickets.filter(ticket => ticket.userEmail === user.email);
 };
