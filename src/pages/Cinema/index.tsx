@@ -15,34 +15,42 @@ const Cinema: React.FC = () => {
   const [selectedCinema, setSelectedCinema] = useState<string | null>(null);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [allMovies, setAllMovies] = useState<Movie[]>([]);
   const [showtimes, setShowtimes] = useState<Showtime[]>([]);
+  const [allShowtimes, setAllShowtimes] = useState<Showtime[]>([]);
   const [dates, setDates] = useState<string[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchShowtimesData = async () => {
+    const fetchData = async () => {
       try {
-        const allShowtimes = await fetchMovieShowtimes();
-        const citiesSet = new Set<string>();
-        const cinemasSet = new Set<string>();
+        const [allShowtimesResponse, allMoviesResponse] = await Promise.all([
+          fetchMovieShowtimes(),
+          fetchMovies(),
+        ]);
 
-        allShowtimes.forEach((showtime) => {
-          citiesSet.add(showtime.city);
-          if (showtime.city === selectedCity) {
-            cinemasSet.add(showtime.cinemaName);
-          }
-        });
+        setAllShowtimes(allShowtimesResponse);
+        setAllMovies(allMoviesResponse);
 
+        const citiesSet = new Set<string>(allShowtimesResponse.map((showtime) => showtime.city));
         setCities(Array.from(citiesSet));
-        setCinemas(Array.from(cinemasSet));
-        setShowtimes(allShowtimes);
       } catch (error) {
-        console.error('Error fetching showtimes data:', error);
+        console.error('Error fetching data:', error);
       }
     };
 
-    fetchShowtimesData();
-  }, [selectedCity]);
+    fetchData();
+  }, []); 
+
+  useEffect(() => {
+    if (selectedCity) {
+      const cinemasSet = new Set<string>(
+        allShowtimes.filter((showtime) => showtime.city === selectedCity).map((showtime) => showtime.cinemaName)
+      );
+      setCinemas(Array.from(cinemasSet));
+      setShowtimes(allShowtimes.filter((showtime) => showtime.city === selectedCity));
+    }
+  }, [selectedCity, allShowtimes]);
 
   useEffect(() => {
     if (selectedCinema) {
@@ -58,32 +66,19 @@ const Cinema: React.FC = () => {
   }, [selectedCinema, showtimes]);
 
   useEffect(() => {
-    const fetchMoviesData = async () => {
-      if (selectedCinema && selectedDate) {
-        try {
-          const relevantShowtimes = showtimes.filter(
-            (showtime) =>
-              showtime.cinemaName === selectedCinema && showtime.date === selectedDate
-          );
+    if (selectedCinema && selectedDate) {
+      const relevantShowtimes = showtimes.filter(
+        (showtime) => showtime.cinemaName === selectedCinema && showtime.date === selectedDate
+      );
 
-          const movieIds = Array.from(new Set(relevantShowtimes.map((showtime) => showtime.movieId)));
+      const movieIds = Array.from(new Set(relevantShowtimes.map((showtime) => showtime.movieId)));
+      const filteredMovies = allMovies.filter((movie) => movieIds.includes(Number(movie.id)));
 
-          const moviesResponse = await fetchMovies();
-          const filteredMovies = moviesResponse.filter((movie) =>
-            movieIds.includes(Number(movie.id))
-          );
-
-          setMovies(filteredMovies);
-        } catch (error) {
-          console.error('Error fetching movies data:', error);
-        }
-      } else {
-        setMovies([]);
-      }
-    };
-
-    fetchMoviesData();
-  }, [selectedCinema, selectedDate, showtimes]);
+      setMovies(filteredMovies);
+    } else {
+      setMovies([]);
+    }
+  }, [selectedCinema, selectedDate, showtimes, allMovies]);
 
   const handleCityClick = (city: string) => {
     setSelectedCity(city);
